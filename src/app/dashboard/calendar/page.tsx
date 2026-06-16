@@ -130,13 +130,16 @@ export default function GlobalCalendarPage() {
   const today = new Date().toISOString().split("T")[0];
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  return (
-    <div className={`page-enter ${styles.planPage}`}>
-      <h1>Global Calendar</h1>
-      <p className={styles.planSummary}>View all your study schedules merged in one place.</p>
+  const totalCells = firstDay + daysInMonth;
+  const weeks = Math.ceil(totalCells / 7);
 
-      <div className={styles.calendarContainer}>
-        <div className={styles.calendarNav}>
+  return (
+    <div className={`page-enter ${styles.planPage}`} style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 64px)' }}>
+      <h1 style={{ flexShrink: 0 }}>Global Calendar</h1>
+      <p className={styles.planSummary} style={{ flexShrink: 0 }}>View all your study schedules merged in one place.</p>
+
+      <div className={styles.calendarContainer} style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0, marginBottom: 0 }}>
+        <div className={styles.calendarNav} style={{ flexShrink: 0 }}>
           <h3>{monthName}</h3>
           <div className={styles.calendarNavBtns}>
             <button className="btn btn-ghost btn-icon btn-sm" onClick={prevMonth}>
@@ -148,7 +151,14 @@ export default function GlobalCalendarPage() {
           </div>
         </div>
 
-        <div className={styles.calendarGrid}>
+        <div 
+          className={styles.calendarGrid} 
+          style={{ 
+            flex: 1, 
+            gridTemplateRows: `auto repeat(${weeks}, minmax(0, 1fr))`,
+            minHeight: 0
+          }}
+        >
           {dayNames.map((d) => (
             <div key={d} className={styles.calendarDayHeader}>
               {d}
@@ -160,6 +170,7 @@ export default function GlobalCalendarPage() {
             <div
               key={`empty-${i}`}
               className={`${styles.calendarDay} ${styles.calendarDayEmpty}`}
+              style={{ minHeight: 0 }}
             />
           ))}
 
@@ -178,7 +189,7 @@ export default function GlobalCalendarPage() {
                 className={`${styles.calendarDay} ${
                   isToday ? styles.calendarDayToday : ""
                 }`}
-                style={{ minHeight: "120px" }}
+                style={{ minHeight: 0, overflowY: "auto" }}
               >
                 <div className={styles.calendarDayNumber}>{dayNum}</div>
                 {dayTasks.map((task, idx) => (
