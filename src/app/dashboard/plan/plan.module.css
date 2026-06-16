@@ -1,0 +1,339 @@
+.planPage h1 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.planSummary {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.planMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.metaBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── View Toggle ─────────────────────────────────────── */
+.viewToggle {
+  display: flex;
+  gap: 4px;
+  background: var(--surface-100);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.viewToggleBtn {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.viewToggleBtn:hover {
+  color: var(--text-primary);
+}
+
+.viewToggleBtnActive {
+  background: var(--primary-600);
+  color: white;
+}
+
+/* ── Calendar View ───────────────────────────────────── */
+.calendarContainer {
+  margin-bottom: 32px;
+}
+
+.calendarNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.calendarNav h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.calendarNavBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendarDayHeader {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calendarDay {
+  min-height: 90px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-100);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: default;
+  position: relative;
+}
+
+.calendarDay:hover {
+  border-color: var(--glass-border);
+}
+
+.calendarDayEmpty {
+  background: transparent;
+}
+
+.calendarDayNumber {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.calendarDayToday .calendarDayNumber {
+  color: var(--primary-400);
+}
+
+.calendarTask {
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.calendarTask:hover {
+  opacity: 0.8;
+}
+
+.taskStudy {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary-300);
+}
+
+.taskReview {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-400);
+}
+
+.taskPractice {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--warning-400);
+}
+
+.taskRest {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-muted);
+}
+
+/* ── List View ───────────────────────────────────────── */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.taskItem {
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.taskDayBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.taskDayBadge span {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.taskDayBadge.study {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary-300);
+}
+
+.taskDayBadge.review {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-400);
+}
+
+.taskDayBadge.practice {
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--warning-400);
+}
+
+.taskDayBadge.rest {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--text-muted);
+}
+
+.taskContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.taskDesc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.taskMeta {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.taskMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.taskCheck {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--surface-400);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  color: transparent;
+}
+
+.checkbox:hover {
+  border-color: var(--primary-400);
+}
+
+.checkboxChecked {
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+  color: white;
+}
+
+.taskItemCompleted .taskTitle {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.taskItemCompleted .taskDesc {
+  opacity: 0.4;
+}
+
+/* ── Loading ─────────────────────────────────────────── */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 24px;
+  color: var(--text-secondary);
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: var(--surface-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  transition: width var(--transition-base);
+}
+
+.progressText {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .calendarGrid {
+    gap: 2px;
+  }
+  
+  .calendarDay {
+    min-height: 60px;
+    padding: 4px;
+  }
+
+  .calendarTask {
+    font-size: 0.55rem;
+  }
+
+  .taskItem {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

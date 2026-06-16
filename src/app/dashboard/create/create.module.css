@@ -1,0 +1,141 @@
+.createPage {
+  max-width: 720px;
+}
+
+.createPage h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.createPage > p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fileUpload {
+  border: 2px dashed var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.fileUpload:hover {
+  border-color: var(--primary-400);
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.fileUploadActive {
+  border-color: var(--primary-400);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.fileUpload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileUploadIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  color: var(--primary-400);
+}
+
+.fileUpload h4 {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.fileUpload p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--accent-400);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ── Generating State ────────────────────────────────── */
+.generatingState {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.generatingAnimation {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+
+.generatingRing {
+  position: absolute;
+  inset: 0;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-400);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.generatingRing:nth-child(2) {
+  inset: 8px;
+  border-top-color: var(--accent-400);
+  animation-duration: 1.5s;
+  animation-direction: reverse;
+}
+
+.generatingRing:nth-child(3) {
+  inset: 16px;
+  border-top-color: var(--warning-400);
+  animation-duration: 2s;
+}
+
+.generatingState h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.generatingState p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ── Error ───────────────────────────────────────────── */
+.errorBox {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
