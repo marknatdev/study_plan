@@ -8,6 +8,7 @@ import styles from "./create.module.css";
 
 export default function CreatePlanPage() {
   const [prompt, setPrompt] = useState("");
+  const [language, setLanguage] = useState("Thai");
   const [file, setFile] = useState<File | null>(null);
   const [pdfText, setPdfText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -97,6 +98,7 @@ export default function CreatePlanPage() {
     try {
       const formData = new FormData();
       formData.append("prompt", prompt);
+      formData.append("language", language);
       if (pdfText) {
         formData.append("pdfText", pdfText);
       }
@@ -151,6 +153,19 @@ export default function CreatePlanPage() {
       {error && <div className={styles.errorBox}>{error}</div>}
 
       <form onSubmit={handleSubmit} className={styles.form}>
+        <div className="input-group">
+          <label htmlFor="language">Output Language</label>
+          <select
+            id="language"
+            className="input"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          >
+            <option value="Thai">Thai (ภาษาไทย)</option>
+            <option value="English">English</option>
+          </select>
+        </div>
+
         <div className="input-group">
           <label htmlFor="prompt">What are you preparing for?</label>
           <textarea

@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     const prompt = formData.get("prompt") as string;
     const pdfText = formData.get("pdfText") as string | null;
+    const language = formData.get("language") as string || "English";
 
     if (!prompt) {
       return NextResponse.json(
@@ -76,8 +77,9 @@ export async function POST(request: NextRequest) {
       userMessage += `\n\n--- UPLOADED DOCUMENT CONTENT ---\n${pdfText}`;
     }
 
-    // Add today's date for context
+    // Add language instruction and today's date for context
     const today = new Date().toISOString().split("T")[0];
+    userMessage += `\n\nCRITICAL INSTRUCTION: You MUST generate the ENTIRE response (including title, summary, task titles, and task descriptions) in the ${language} language. However, the 'category' and 'priority' fields MUST remain in English to match the exact schema enums (study, review, practice, rest / high, medium, low).`;
     userMessage += `\n\nToday's date is ${today}.`;
 
     const response = await fetch(
