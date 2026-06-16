@@ -38,7 +38,7 @@ interface PlanData {
 
 export default function PlanViewPage() {
   const params = useParams();
-  const planId = params.id as string;
+  const planId = params?.id as string;
   const [plan, setPlan] = useState<PlanData | null>(null);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<"calendar" | "list">("calendar");
