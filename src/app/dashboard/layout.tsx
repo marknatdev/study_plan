@@ -7,6 +7,7 @@ import {
   BookOpen,
   LayoutDashboard,
   PlusCircle,
+  Calendar,
   LogOut,
   Menu,
   X,
@@ -49,6 +50,11 @@ export default function DashboardLayout({
       href: "/dashboard",
       label: "My Plans",
       icon: <LayoutDashboard size={18} />,
+    },
+    {
+      href: "/dashboard/calendar",
+      label: "Calendar",
+      icon: <Calendar size={18} />,
     },
     {
       href: "/dashboard/create",
